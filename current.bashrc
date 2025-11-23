@@ -80,18 +80,29 @@ update_prompt() {
         fi
     fi
 
-    # --- Language (Icon Only) ---
+   # --- Language (Icon Only) ---
     local lang_info=""
     
-    # Check for Node
-    if [[ -f "package.json" ]]; then
-        lang_info=" ${GREEN}⬢${RESET}"
+    # 1. Web Development (Node, JS, TS, HTML, CSS)
+    # Checks for package.json, or any .js/.ts/.html/.css files
+    if [[ -f "package.json" ]] || compgen -G "*.js" > /dev/null || compgen -G "*.ts" > /dev/null || compgen -G "*.html" > /dev/null; then
+        lang_info="${lang_info} ${GREEN}⬢${RESET}"
+    fi
     
-    # Check for Python
-    elif compgen -G "*.py" > /dev/null || [[ -f "requirements.txt" ]]; then
-        lang_info=" ${YELLOW}🐍${RESET}"
+    # 2. Python
+    # Checks for .py files or requirements.txt
+    if compgen -G "*.py" > /dev/null || [[ -f "requirements.txt" ]]; then
+        lang_info="${lang_info} ${YELLOW}🐍${RESET}"
     fi
 
+    # 3. C Language
+    # Checks for .c, .h files or a Makefile
+    if compgen -G "*.c" > /dev/null || compgen -G "*.h" > /dev/null || [[ -f "Makefile" ]]; then
+         lang_info="${lang_info} ${BLUE}C${RESET}"
+    fi
+
+
+    
     # --- F. The Arrow (Error Detection) ---
     local prompt_symbol
     if [ $exit_code -eq 0 ]; then
