@@ -1,0 +1,191 @@
+{
+  /* -------------------------------------------------------------------------- */
+  /* Core Editor                                 */
+  /* -------------------------------------------------------------------------- */
+  "editor.fontFamily": "JetBrainsMono Nerd Font Mono,MesloLGL Nerd Font Mono",
+  "editor.fontWeight": "normal",
+  "editor.lineHeight": 1.9,
+  "editor.tabSize": 3,
+  "editor.detectIndentation": false,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": false, // Explicitly false generally, enabled per language below
+
+  // Visuals & Cursor
+  "editor.cursorBlinking": "expand",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.smoothScrolling": true,
+  "editor.glyphMargin": false,
+  "editor.guides.bracketPairs": "active",
+  "editor.bracketPairColorization.enabled": false,
+  "editor.semanticHighlighting.enabled": true,
+  "editor.minimap.enabled": false,
+  "editor.accessibilitySupport": "off",
+
+  // Suggestions & IntelliSense
+  "editor.linkedEditing": true,
+  "editor.codeLens": false,
+  "editor.inlineSuggest.enabled": true,
+  "editor.snippetSuggestions": "top",
+  "editor.wordBasedSuggestions": "off",
+  "editor.suggest.showWords": false,
+
+  /* -------------------------------------------------------------------------- */
+  /* Window & Workbench                             */
+  /* -------------------------------------------------------------------------- */
+  "workbench.colorTheme": "Vesper",
+  "workbench.iconTheme": "gruvbox-material-icon-theme",
+  "workbench.startupEditor": "none",
+  "workbench.editor.empty.hint": "hidden",
+  "window.commandCenter": false,
+  "window.customTitleBarVisibility": "windowed",
+
+  // Layout
+  "workbench.activityBar.location": "top",
+  "workbench.sideBar.location": "right",
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "breadcrumbs.enabled": false,
+
+  /* -------------------------------------------------------------------------- */
+  /* Files & Explorer                               */
+  /* -------------------------------------------------------------------------- */
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmPasteNative": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "security.allowedUNCHosts": ["wsl.localhost"],
+  "search.useReplacePreview": false,
+
+  /* -------------------------------------------------------------------------- */
+  /* Terminal                                   */
+  /* -------------------------------------------------------------------------- */
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font Mono",
+  "terminal.integrated.fontWeight": "300",
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.cursorStyleInactive": "line",
+  "terminal.integrated.tabs.defaultColor": "terminal.ansiGreen",
+  "terminal.integrated.shellIntegration.enabled": true,
+  "terminal.integrated.shellIntegration.decorationsEnabled": "overviewRuler",
+
+  "terminal.integrated.profiles.windows": {
+    "Command Prompt": {
+      "path": "C:\\Windows\\System32\\cmd.exe"
+    },
+    "PowerShell": {
+      "path": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+    },
+    "Git Bash": {
+      "path": "C:\\Program Files\\Git\\bin\\bash.exe"
+    }
+  },
+
+  /* -------------------------------------------------------------------------- */
+  /* Extensions                                  */
+  /* -------------------------------------------------------------------------- */
+  // Prettier
+  "prettier.printWidth": 6000,
+
+  // GitHub Copilot & AI
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "tabnine.experimentalAutoImports": true,
+
+  // Live Server
+  "liveServer.settings.donotShowInfoMsg": true,
+  "liveServer.settings.donotVerifyTags": true,
+  "liveServer.settings.fullReload": true,
+
+  // Code Runner
+  "code-runner.saveAllFilesBeforeRun": true,
+  "code-runner.saveFileBeforeRun": true,
+  "code-runner.clearPreviousOutput": true,
+  "code-runner.runInTerminal": true,
+  "code-runner.temporaryFileName": "tempFile",
+  "code-runner.showExecutionMessage": false,
+
+  // C/C++
+  "C_Cpp.formatting": "vcFormat",
+  "C_Cpp.vcFormat.newLine.beforeOpenBrace.block": "sameLine",
+  "C_Cpp.vcFormat.newLine.beforeOpenBrace.type": "sameLine",
+  "C_Cpp.vcFormat.newLine.beforeOpenBrace.function": "sameLine",
+  "C_Cpp.vcFormat.newLine.beforeOpenBrace.lambda": "sameLine",
+  "C_Cpp.vcFormat.space.afterKeywordsInControlFlowStatements": false,
+  "C_Cpp.vcFormat.space.beforeBlockOpenBrace": false,
+  "c-cpp-compile-run.run-in-external-terminal": true,
+  "cmake.configureOnOpen": true,
+  "cmake.showOptionsMovedNotification": false,
+
+  // MSSQL
+  "mssql.objectExplorer.groupBySchema": false,
+
+  /* -------------------------------------------------------------------------- */
+  /* Language Specifics                               */
+  /* -------------------------------------------------------------------------- */
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.wordBasedSuggestions": "off",
+    "javascript.updateImportsOnFileMove.enabled": "always"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[python]": {
+    "editor.formatOnType": true,
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "python.terminal.shellIntegration.enabled": true
+  },
+  "[c]": {
+    "editor.semanticHighlighting.enabled": true,
+    "editor.occurrencesHighlight": "singleFile",
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+
+  /* -------------------------------------------------------------------------- */
+  /* Color Customizations                            */
+  /* -------------------------------------------------------------------------- */
+  "workbench.colorCustomizations": {
+    "editorBracketHighlight.foreground1": "#ffffffe8",
+    "editorBracketHighlight.foreground2": "#ffffffe8",
+    "editorBracketHighlight.foreground3": "#ffffffe8",
+    "editorBracketHighlight.foreground4": "#ffffffe8",
+    "editorBracketHighlight.foreground5": "#ffffffe8",
+    "editorBracketHighlight.foreground6": "#ffffffe8",
+
+    // Vesper++ Terminal Colors
+    "terminal.foreground": "#ffffffe8",
+    "terminal.ansiBlack": "#000000",
+    "terminal.ansiBlue": "#FFC799",
+    "terminal.ansiBrightBlack": "#101010",
+    "terminal.ansiBrightBlue": "#FFC799",
+    "terminal.ansiBrightCyan": "#99FFE4",
+    "terminal.ansiBrightGreen": "#99FFE4",
+    "terminal.ansiBrightMagenta": "#FBADFF",
+    "terminal.ansiBrightRed": "#FF8080",
+    "terminal.ansiBrightWhite": "#f8f8f2",
+    "terminal.ansiBrightYellow": "#FFC799",
+    "terminal.ansiCyan": "#99FFE4",
+    "terminal.ansiGreen": "#99FFE4",
+    "terminal.ansiMagenta": "#FBADFF",
+    "terminal.ansiRed": "#FF8080",
+    "terminal.ansiWhite": "#e3e3dd",
+    "terminal.ansiYellow": "#FFC799",
+    "terminal.background": "#101010"
+  }
+}
