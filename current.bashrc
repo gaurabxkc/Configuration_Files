@@ -128,3 +128,36 @@ update_prompt() {
 # --- 6. EXECUTION ---
 # Run prompt update BEFORE history commands to capture exit code correctly
 PROMPT_COMMAND="update_prompt; history -a; history -n"
+
+
+
+cd() {
+    builtin cd "$@" || return
+
+    # List of common venv names
+    local venv_names=("venv" ".venv" "env" ".env" "myenv")
+
+    # Flag to check if we activated something
+    local activated=false
+
+    for name in "${venv_names[@]}"; do
+        if [ -d "$name" ]; then
+            # Check for Windows-style (Scripts)
+            if [ -f "$name/Scripts/activate" ]; then
+                source "$name/Scripts/activate"
+                activated=true
+                break
+            # Check for Unix-style (bin) - just in case
+            elif [ -f "$name/bin/activate" ]; then
+                source "$name/bin/activate"
+                activated=true
+                break
+            fi
+        fi
+    done
+
+    # If we didn't find a venv, but one is currently active, deactivate it
+    if [ "$activated" = false ] && [ -n "$VIRTUAL_ENV" ]; then
+        deactivate
+    fi
+}
