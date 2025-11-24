@@ -45,12 +45,13 @@ update_prompt() {
 
     # --- A. Colors ---
     local MINT='\[\033[38;2;148;255;228m\]'
-    local RED='\[\e[31m\]'
+    local RED='\[\e[35m\]'
     local YELLOW='\[\e[33m\]'
     local BLUE='\[\e[34m\]'
     local GREEN='\[\e[32m\]'
     local LGREY='\[\e[38;5;252m\]'
     local RESET='\[\e[0m\]'
+
 
     # --- B. Context (Hostname) ---
     local context="${LGREY}◉ \h${RESET}"
@@ -59,8 +60,16 @@ update_prompt() {
     local full_path="$PWD"
     local current_dir
     
+    if [[ -n "$VIRTUAL_ENV" ]]; then
+        # Extract the name of the venv (the last part of the path)
+    local venv_name=$(basename "$VIRTUAL_ENV")
+        # Add the venv name to the context part of the prompt
+    context="${LGREY}◉ \h${RESET}${LGREY} [${venv_name}]${RESET}"
+    fi
+
+    
     if [[ "$full_path" == "$HOME" ]]; then
-        current_dir="gaurab"
+        current_dir="../gaurab"
     elif [[ "$full_path" == "/" ]]; then
         current_dir="/"
     else
@@ -92,7 +101,7 @@ update_prompt() {
     # 2. Python
     # Checks for .py files or requirements.txt
     if compgen -G "*.py" > /dev/null || [[ -f "requirements.txt" ]]; then
-        lang_info="${lang_info} ${YELLOW}🐍${RESET}"
+        lang_info="${lang_info} ${GREEN}${RESET}"
     fi
 
     # 3. C Language
@@ -102,7 +111,7 @@ update_prompt() {
     fi
 
 
-    
+
     # --- F. The Arrow (Error Detection) ---
     local prompt_symbol
     if [ $exit_code -eq 0 ]; then
